@@ -197,13 +197,19 @@ h2 {
 .btn, .hero-btn {
   background: #1a4d8c;
   color: #fff;
-  padding: 0.9rem 2rem;
+  padding: 0.65rem 1.4rem;
   font-size: 1.05rem;
   border-radius: 6px;
   text-decoration: none;
   display: inline-block;
   border: none;
   cursor: pointer;
+}
+
+.project .btn {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .btn:hover, .hero-btn:hover {
@@ -247,6 +253,11 @@ section.hero {
 
 h2, .project h3 {
   color: #1a4d8c;
+}
+
+.project h3 {
+  font-size: 25px;
+  margin-bottom: 0.5rem;
 }
 
 .about-grid {
@@ -490,7 +501,7 @@ h2, .project h3 {
   }
 
   .project h3 {
-    font-size: 1.3rem;
+    font-size: 22px;
   }
 
   .project-desc {
