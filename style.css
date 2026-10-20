@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
@@ -16,12 +20,15 @@ body {
 .hero {
   min-height: 100vh;
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  background: url('hero-bg.jpeg') center/cover no-repeat;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: url('hero-bg.jpeg') center center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 header {
