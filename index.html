@@ -122,7 +122,12 @@
         </div>
       </div>
       <div class="footer-right">
-        <p>&copy; 2026 Yannis Lo. All rights reserved.</p>
+        <h3>Contact me</h3>
+        <form class="contact-form" onsubmit="event.preventDefault(); this.reset(); alert('Message sent!');">
+          <textarea placeholder="Write your message here..." required></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+        <p class="copyright">&copy; 2026 Yannis Lo. All rights reserved.</p>
       </div>
     </div>
   </footer>
