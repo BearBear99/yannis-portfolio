@@ -277,6 +277,9 @@ h2, .project h3 {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .project-images a {
@@ -303,6 +306,13 @@ h2, .project h3 {
   margin-bottom: 1.5rem;
   height: 340px;
   background: #1a4d8c !important;
+}
+
+.featured-carousel {
+  width: calc(100% + 80px);
+  margin-left: -40px;
+  margin-right: -40px;
+  max-width: none;
 }
 
 .carousel.auto {
@@ -333,6 +343,37 @@ h2, .project h3 {
   flex-shrink: 0;
   cursor: pointer;
   background: transparent;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a4d8c;
+  transition: background 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: #fff;
+}
+
+.carousel-arrow.left {
+  left: 8px;
+}
+
+.carousel-arrow.right {
+  right: 8px;
 }
 
 /* Lightbox */
@@ -461,6 +502,12 @@ h2, .project h3 {
     margin-bottom: 3rem;
   }
 
+  .featured-carousel {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .carousel {
     height: 220px;
     background: #1a4d8c !important;
@@ -471,5 +518,11 @@ h2, .project h3 {
     width: 145px !important;
     min-width: 145px !important;
     max-width: 145px !important;
+  }
+
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1.3rem;
   }
 }
