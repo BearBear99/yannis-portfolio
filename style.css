@@ -291,12 +291,13 @@ h2, .project h3 {
   border-radius: 8px;
   margin-bottom: 1.5rem;
   height: 180px;
-  background: #1a4d8c;
+  background: #1a4d8c !important;
 }
 
 .carousel.auto {
   overflow: hidden;
   position: relative;
+  background: #1a4d8c !important;
 }
 
 .carousel.auto .carousel-track {
@@ -308,6 +309,7 @@ h2, .project h3 {
   position: absolute;
   left: 0;
   top: 0;
+  background: transparent;
 }
 
 .carousel.auto .carousel-track img {
@@ -319,6 +321,7 @@ h2, .project h3 {
   border-radius: 6px;
   flex-shrink: 0;
   cursor: pointer;
+  background: transparent;
 }
 
 /* Lightbox */
@@ -445,6 +448,7 @@ h2, .project h3 {
 
   .carousel {
     height: 140px;
+    background: #1a4d8c !important;
   }
 
   .carousel.auto .carousel-track img {
