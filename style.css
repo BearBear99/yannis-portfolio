@@ -283,6 +283,7 @@ h2, .project h3 {
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 1.5rem;
+  height: 280px;
 }
 
 .carousel.auto {
@@ -294,6 +295,16 @@ h2, .project h3 {
   display: flex;
   gap: 12px;
   width: max-content;
+  height: 100%;
+  align-items: center;
+}
+
+.carousel.auto .carousel-track img {
+  height: 260px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 /* Mobile styles */
@@ -381,5 +392,13 @@ h2, .project h3 {
   .project-desc {
     font-size: 1rem;
     line-height: 1.6;
+  }
+
+  .carousel {
+    height: 200px;
+  }
+
+  .carousel.auto .carousel-track img {
+    height: 180px;
   }
 }
