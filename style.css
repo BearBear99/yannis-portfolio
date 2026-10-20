@@ -279,7 +279,7 @@ h2, .project h3 {
 }
 
 .project {
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 5rem;
 }
 
@@ -320,10 +320,11 @@ h2, .project h3 {
 }
 
 .featured-carousel {
-  width: calc(100% + 80px);
-  margin-left: -40px;
-  margin-right: -40px;
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
   max-width: none;
+  overflow: visible;
 }
 
 .carousel.auto {
@@ -360,31 +361,33 @@ h2, .project h3 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  width: 40px;
-  height: 40px;
+  background: #fff;
+  border: 1px solid #ddd;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   cursor: pointer;
   z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #1a4d8c;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 .carousel-arrow:hover {
-  background: #fff;
+  background: #f8f8f8;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
 
 .carousel-arrow.left {
-  left: 8px;
+  left: -56px;
 }
 
 .carousel-arrow.right {
-  right: 8px;
+  right: -56px;
 }
 
 /* Lightbox */
@@ -535,5 +538,13 @@ h2, .project h3 {
     width: 32px;
     height: 32px;
     font-size: 1.3rem;
+  }
+
+  .carousel-arrow.left {
+    left: -40px;
+  }
+
+  .carousel-arrow.right {
+    right: -40px;
   }
 }
