@@ -173,7 +173,9 @@ footer {
 }
 
 h2 {
+  font-family: 'Libre Baskerville', serif;
   font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 2rem;
   color: #1a4d8c;
   text-align: center;
