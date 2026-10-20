@@ -46,9 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     track.addEventListener('mouseenter', () => { isPaused = true; });
     track.addEventListener('mouseleave', () => { isPaused = false; });
 
-    // Manual arrow controls
-    const leftArrow = carousel.querySelector('.carousel-arrow.left');
-    const rightArrow = carousel.querySelector('.carousel-arrow.right');
+    // Manual arrow controls - look in parent wrapper
+    const wrapper = carousel.closest('.carousel-wrapper') || carousel.parentElement;
+    const leftArrow = wrapper.querySelector('.carousel-arrow.left');
+    const rightArrow = wrapper.querySelector('.carousel-arrow.right');
 
     if (leftArrow && rightArrow) {
       leftArrow.addEventListener('click', () => {
