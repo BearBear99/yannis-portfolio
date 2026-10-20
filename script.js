@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let position = 0;
     const speed = 0.5;
     let isPaused = false;
-    let animating = true;
+    let manualControl = false;
 
     function animate() {
-      if (animating && !isPaused) {
+      if (!isPaused && !manualControl) {
         position -= speed;
         if (Math.abs(position) >= track.scrollWidth / 2) {
           position = 0;
@@ -44,28 +44,40 @@ document.addEventListener('DOMContentLoaded', () => {
     animate();
 
     track.addEventListener('mouseenter', () => { isPaused = true; });
-    track.addEventListener('mouseleave', () => { isPaused = false; });
+    track.addEventListener('mouseleave', () => { 
+      if (!manualControl) isPaused = false; 
+    });
 
-    // Manual arrow controls - look in parent wrapper
+    // Manual arrow controls
     const wrapper = carousel.closest('.carousel-wrapper') || carousel.parentElement;
     const leftArrow = wrapper.querySelector('.carousel-arrow.left');
     const rightArrow = wrapper.querySelector('.carousel-arrow.right');
 
     if (leftArrow && rightArrow) {
-      leftArrow.addEventListener('click', () => {
+      leftArrow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        manualControl = true;
         isPaused = true;
-        position += 250;
+        position += 244;
         if (position > 0) position = 0;
         track.style.transform = `translateX(${position}px)`;
-        setTimeout(() => { isPaused = false; }, 1500);
+        setTimeout(() => { 
+          manualControl = false; 
+          isPaused = false; 
+        }, 2000);
       });
 
-      rightArrow.addEventListener('click', () => {
+      rightArrow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        manualControl = true;
         isPaused = true;
-        position -= 250;
+        position -= 244;
         if (Math.abs(position) >= track.scrollWidth / 2) position = 0;
         track.style.transform = `translateX(${position}px)`;
-        setTimeout(() => { isPaused = false; }, 1500);
+        setTimeout(() => { 
+          manualControl = false; 
+          isPaused = false; 
+        }, 2000);
       });
     }
 
