@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Continuous slow auto-scroll carousels + pause on hover + click to zoom
   document.querySelectorAll('.carousel.auto').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
-    const images = track.querySelectorAll('img');
+    const images = Array.from(track.querySelectorAll('img'));
     
     // Duplicate images for seamless loop
     images.forEach(img => {
@@ -29,9 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let position = 0;
     const speed = 0.5;
     let isPaused = false;
+    let animating = true;
 
     function animate() {
-      if (!isPaused) {
+      if (animating && !isPaused) {
         position -= speed;
         if (Math.abs(position) >= track.scrollWidth / 2) {
           position = 0;
@@ -47,23 +48,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
     track.addEventListener('click', (e) => {
       if (e.target.tagName === 'IMG') {
-        openLightbox(e.target.src, e.target.alt);
+        openLightbox(e.target.src, e.target.alt, track);
       }
     });
   });
 
-  function openLightbox(src, alt) {
+  function openLightbox(src, alt, track) {
+    // Pause animation and remove transform so lightbox isn't affected
+    const wasPaused = track.style.transform;
+    track.style.transform = 'none';
+
+    // Remove any existing lightbox
+    document.querySelectorAll('.lightbox').forEach(el => el.remove());
+
     const overlay = document.createElement('div');
     overlay.className = 'lightbox';
-    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:99999;';
     overlay.innerHTML = `
-      <div class="lightbox-content" style="position:relative;max-width:90vw;max-height:90vh;">
-        <img src="${src}" alt="${alt}" style="max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;">
-        <button class="lightbox-close" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer;">×</button>
+      <div class="lightbox-content">
+        <img src="${src}" alt="${alt}">
+        <button class="lightbox-close">×</button>
       </div>
     `;
-    document.documentElement.appendChild(overlay);
-    overlay.querySelector('.lightbox-close').onclick = () => overlay.remove();
-    overlay.onclick = (e) => { if (e.target === overlay) overlay.remove(); };
+
+    // Force styles
+    overlay.style.cssText = `
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      background: rgba(0,0,0,0.9) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 999999 !important;
+    `;
+
+    const content = overlay.querySelector('.lightbox-content');
+    content.style.cssText = 'position: relative; max-width: 90vw; max-height: 90vh;';
+
+    const img = overlay.querySelector('img');
+    img.style.cssText = 'max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px;';
+
+    const closeBtn = overlay.querySelector('.lightbox-close');
+    closeBtn.style.cssText = 'position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; z-index: 1000000;';
+
+    document.body.appendChild(overlay);
+
+    const closeLightbox = () => {
+      overlay.remove();
+      track.style.transform = wasPaused;
+    };
+
+    closeBtn.onclick = closeLightbox;
+    overlay.onclick = (e) => {
+      if (e.target === overlay) closeLightbox();
+    };
   }
 });
