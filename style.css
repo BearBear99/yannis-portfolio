@@ -290,7 +290,7 @@ h2, .project h3 {
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  height: 180px;
+  height: 280px;
   background: #1a4d8c !important;
 }
 
@@ -302,7 +302,7 @@ h2, .project h3 {
 
 .carousel.auto .carousel-track {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   height: 100%;
   align-items: center;
   padding: 0 8px;
@@ -313,10 +313,10 @@ h2, .project h3 {
 }
 
 .carousel.auto .carousel-track img {
-  height: 160px !important;
-  width: 120px !important;
-  min-width: 120px !important;
-  max-width: 120px !important;
+  height: 260px !important;
+  width: 190px !important;
+  min-width: 190px !important;
+  max-width: 190px !important;
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
@@ -447,14 +447,14 @@ h2, .project h3 {
   }
 
   .carousel {
-    height: 140px;
+    height: 200px;
     background: #1a4d8c !important;
   }
 
   .carousel.auto .carousel-track img {
-    height: 120px !important;
-    width: 90px !important;
-    min-width: 90px !important;
-    max-width: 90px !important;
+    height: 180px !important;
+    width: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
   }
 }
