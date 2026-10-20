@@ -44,6 +44,7 @@ header {
 }
 
 .logo {
+  font-family: 'Libre Baskerville', serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #ff6b00;
@@ -89,6 +90,8 @@ footer {
   margin-bottom: 0.5rem;
   font-size: 1.4rem;
   color: #ff6b00;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
 }
 
 .footer-left p {
@@ -175,7 +178,9 @@ h2 {
 }
 
 .welcome-box h1 {
+  font-family: 'Libre Baskerville', serif;
   font-size: 3.2rem;
+  font-weight: 700;
   margin-bottom: 0.75rem;
   letter-spacing: 2px;
 }
