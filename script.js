@@ -55,13 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function openLightbox(src, alt) {
     const overlay = document.createElement('div');
     overlay.className = 'lightbox';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:99999;';
     overlay.innerHTML = `
-      <div class="lightbox-content">
-        <img src="${src}" alt="${alt}">
-        <button class="lightbox-close">×</button>
+      <div class="lightbox-content" style="position:relative;max-width:90vw;max-height:90vh;">
+        <img src="${src}" alt="${alt}" style="max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;">
+        <button class="lightbox-close" style="position:absolute;top:-40px;right:0;background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer;">×</button>
       </div>
     `;
-    document.body.appendChild(overlay);
+    document.documentElement.appendChild(overlay);
     overlay.querySelector('.lightbox-close').onclick = () => overlay.remove();
     overlay.onclick = (e) => { if (e.target === overlay) overlay.remove(); };
   }
