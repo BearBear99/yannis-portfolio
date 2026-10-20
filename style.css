@@ -283,7 +283,7 @@ h2, .project h3 {
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  height: 280px;
+  height: 220px;
 }
 
 .carousel.auto {
@@ -300,8 +300,10 @@ h2, .project h3 {
 }
 
 .carousel.auto .carousel-track img {
-  height: 260px;
-  width: auto;
+  height: 200px !important;
+  max-height: 200px !important;
+  width: auto !important;
+  max-width: 280px !important;
   object-fit: contain;
   border-radius: 6px;
   flex-shrink: 0;
@@ -395,10 +397,12 @@ h2, .project h3 {
   }
 
   .carousel {
-    height: 200px;
+    height: 160px;
   }
 
   .carousel.auto .carousel-track img {
-    height: 180px;
+    height: 140px !important;
+    max-height: 140px !important;
+    max-width: 200px !important;
   }
 }
