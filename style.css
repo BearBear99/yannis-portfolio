@@ -280,7 +280,6 @@ h2, .project h3 {
 .project {
   overflow: visible;
   margin-bottom: 5rem;
-  position: relative;
 }
 
 .project-images {
@@ -310,21 +309,22 @@ h2, .project h3 {
   transform: scale(1.02);
 }
 
+.carousel-wrapper {
+  position: relative;
+  margin: 0 50px 1.5rem;
+}
+
 .carousel {
   position: relative;
   overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
   height: 340px;
   background: #1a4d8c !important;
 }
 
 .featured-carousel {
   width: 100%;
-  margin-left: 0;
-  margin-right: 0;
   max-width: none;
-  overflow: visible;
 }
 
 .carousel.auto {
@@ -383,11 +383,11 @@ h2, .project h3 {
 }
 
 .carousel-arrow.left {
-  left: -48px;
+  left: -50px;
 }
 
 .carousel-arrow.right {
-  right: -48px;
+  right: -50px;
 }
 
 /* Lightbox */
@@ -516,10 +516,8 @@ h2, .project h3 {
     margin-bottom: 3rem;
   }
 
-  .featured-carousel {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+  .carousel-wrapper {
+    margin: 0 40px 1.5rem;
   }
 
   .carousel {
@@ -541,10 +539,10 @@ h2, .project h3 {
   }
 
   .carousel-arrow.left {
-    left: -36px;
+    left: -40px;
   }
 
   .carousel-arrow.right {
-    right: -36px;
+    right: -40px;
   }
 }
