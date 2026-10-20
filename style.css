@@ -14,6 +14,7 @@ body {
   color: #222;
   background: #fff;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .hero {
@@ -75,6 +76,8 @@ footer {
   background: #0a2540;
   color: #fff;
   padding: 3rem 2rem 2rem;
+  position: relative;
+  z-index: 10;
 }
 
 .footer-inner {
@@ -278,6 +281,10 @@ h2, .project h3 {
   border-radius: 8px;
 }
 
+.project {
+  overflow: hidden;
+}
+
 .carousel {
   position: relative;
   overflow: hidden;
@@ -298,6 +305,9 @@ h2, .project h3 {
   height: 100%;
   align-items: center;
   padding: 0 8px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .carousel.auto .carousel-track img {
