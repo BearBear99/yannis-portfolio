@@ -363,10 +363,10 @@ h2, .project h3 {
   transform: translateY(-50%);
   background: #fff;
   border: 1px solid #ddd;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
   z-index: 10;
   display: flex;
@@ -383,11 +383,11 @@ h2, .project h3 {
 }
 
 .carousel-arrow.left {
-  left: -22px;
+  left: -48px;
 }
 
 .carousel-arrow.right {
-  right: -22px;
+  right: -48px;
 }
 
 /* Lightbox */
@@ -535,16 +535,16 @@ h2, .project h3 {
   }
 
   .carousel-arrow {
-    width: 34px;
-    height: 34px;
-    font-size: 1.2rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
   }
 
   .carousel-arrow.left {
-    left: -12px;
+    left: -36px;
   }
 
   .carousel-arrow.right {
-    right: -12px;
+    right: -36px;
   }
 }
