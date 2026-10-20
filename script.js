@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  // Continuous slow auto-scroll carousels + pause on hover + click to zoom
+  // Continuous slow auto-scroll carousels + pause on hover + click to zoom + arrows
   document.querySelectorAll('.carousel.auto').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const images = Array.from(track.querySelectorAll('img'));
@@ -46,6 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
     track.addEventListener('mouseenter', () => { isPaused = true; });
     track.addEventListener('mouseleave', () => { isPaused = false; });
 
+    // Manual arrow controls
+    const leftArrow = carousel.querySelector('.carousel-arrow.left');
+    const rightArrow = carousel.querySelector('.carousel-arrow.right');
+
+    if (leftArrow && rightArrow) {
+      leftArrow.addEventListener('click', () => {
+        isPaused = true;
+        position += 250;
+        if (position > 0) position = 0;
+        track.style.transform = `translateX(${position}px)`;
+        setTimeout(() => { isPaused = false; }, 1500);
+      });
+
+      rightArrow.addEventListener('click', () => {
+        isPaused = true;
+        position -= 250;
+        if (Math.abs(position) >= track.scrollWidth / 2) position = 0;
+        track.style.transform = `translateX(${position}px)`;
+        setTimeout(() => { isPaused = false; }, 1500);
+      });
+    }
+
     track.addEventListener('click', (e) => {
       if (e.target.tagName === 'IMG') {
         openLightbox(e.target.src, e.target.alt, track);
@@ -54,11 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function openLightbox(src, alt, track) {
-    // Pause animation and remove transform so lightbox isn't affected
     const wasPaused = track.style.transform;
     track.style.transform = 'none';
 
-    // Remove any existing lightbox
     document.querySelectorAll('.lightbox').forEach(el => el.remove());
 
     const overlay = document.createElement('div');
@@ -70,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
 
-    // Force styles
     overlay.style.cssText = `
       position: fixed !important;
       top: 0 !important;
