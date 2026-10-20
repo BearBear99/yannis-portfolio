@@ -267,6 +267,11 @@ h2, .project h3 {
   object-fit: cover;
 }
 
+.project {
+  overflow: hidden;
+  margin-bottom: 5rem;
+}
+
 .project-images {
   margin-bottom: 1.5rem;
   border-radius: 8px;
@@ -274,15 +279,21 @@ h2, .project h3 {
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
+.project-images a {
+  display: block;
+}
+
 .project-screenshot {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.project {
-  overflow: hidden;
+.project-screenshot:hover {
+  transform: scale(1.02);
 }
 
 .carousel {
@@ -290,7 +301,7 @@ h2, .project h3 {
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 1.5rem;
-  height: 280px;
+  height: 340px;
   background: #1a4d8c !important;
 }
 
@@ -302,7 +313,7 @@ h2, .project h3 {
 
 .carousel.auto .carousel-track {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   height: 100%;
   align-items: center;
   padding: 0 8px;
@@ -313,10 +324,10 @@ h2, .project h3 {
 }
 
 .carousel.auto .carousel-track img {
-  height: 260px !important;
-  width: 190px !important;
-  min-width: 190px !important;
-  max-width: 190px !important;
+  height: 320px !important;
+  width: 230px !important;
+  min-width: 230px !important;
+  max-width: 230px !important;
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
@@ -446,15 +457,19 @@ h2, .project h3 {
     line-height: 1.6;
   }
 
+  .project {
+    margin-bottom: 3rem;
+  }
+
   .carousel {
-    height: 200px;
+    height: 220px;
     background: #1a4d8c !important;
   }
 
   .carousel.auto .carousel-track img {
-    height: 180px !important;
-    width: 130px !important;
-    min-width: 130px !important;
-    max-width: 130px !important;
+    height: 200px !important;
+    width: 145px !important;
+    min-width: 145px !important;
+    max-width: 145px !important;
   }
 }
